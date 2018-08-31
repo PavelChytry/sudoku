@@ -1,0 +1,16 @@
+<%= form_with model: @sudoku, local: true do |form| %>
+  <%= form.label :text %><br>
+  <%= form.text_field :text ,:value => @sudoku.text %><br>
+  <table id="input">
+    <% 9.times do |row| %>
+      <tr>
+        <% 9.times do |col| %>
+          <td><%= form.number_field ("id_" + (row * 9 + col).to_s), in: 0..9, :value => @sudoku.data[row * 9 + col].to_i %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <%= form.submit %>
+<% end %>
+
+<%= link_to 'Back', sudokus_path %>

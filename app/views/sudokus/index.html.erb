@@ -1,0 +1,15 @@
+<h1>Text</h1>
+<p><%= link_to 'New', new_sudoku_path %></p>
+<table>
+  <% @sudokus.each do |s| %>
+    <tr>
+      <td>Sudoku: </td>
+      <td><%= s.text %></td>
+      <td><%= s.data %></td>
+      <td><%= link_to 'Show', sudoku_path(s) %></td>
+      <td><%= link_to 'Edit', edit_sudoku_path(s) %></td>
+      <td><%= link_to 'Delete', sudoku_path(s), method: :delete %></td>
+      <td><%= button_to 'Solve', solve_path(s), method: :solve %></td>
+    <tr>
+  <% end %>
+</table>

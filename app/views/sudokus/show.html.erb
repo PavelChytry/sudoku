@@ -1,0 +1,12 @@
+<p>text: <%= @sudoku.text %></p>
+<table>
+  <% 9.times do |row| %>
+    <tr>
+      <% 9.times do |col| %>
+        <td><%= @sudoku.data[row * 9 + col] %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', sudokus_path %>
